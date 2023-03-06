@@ -1,13 +1,14 @@
 .item {
   display: flex;
   flex-direction: column;
-  max-width: 200px;
-  max-height: 200px;
+  min-width: 200px;
+  min-height: 200px;
   background: white;
   box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
   border-radius: 6px;
   padding: 10px;
   margin-top: 20px;
+
   & > div:first-child {
     display: flex;
     justify-content: center;
@@ -33,4 +34,34 @@
 
 body {
   background: lightgrey;
+}
+
+.comments {
+  display: flex;
+  justify-content: space-between;
+
+  &__delete {
+    justify-content: flex-end;
+
+    & > img {
+      max-height: 34px;
+      max-width: 34px;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+  &__like {
+    &> img{
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
