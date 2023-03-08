@@ -1,28 +1,14 @@
+h3 {
+  margin: 0;
+}
+
 .item {
   display: flex;
-  flex-direction: column;
-  min-width: 200px;
-  min-height: 200px;
   background: white;
-  box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+  flex-direction: row;
   border-radius: 6px;
-  padding: 10px;
   margin-top: 20px;
-
-  & > div:first-child {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  & > div {
-    display: flex;
-    align-items: center;
-
-    & > svg {
-      margin-right: 5px;
-    }
-  }
+  width: 300px;
 }
 
 .cards {
@@ -33,26 +19,78 @@
 }
 
 body {
-  background: lightgrey;
+  background: #fff;
 }
 
 .comments {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+  &__like {
+    display: flex;
+    align-items: center;
+
+    & > img {
+      margin-right: 5px;
+      transition: background-color 0.3s;
+      border-radius: 50%;
+
+      &:hover {
+        border-radius: 50%;
+        background-color: lightgrey;
+      }
+    }
+  }
+
+  &__data {
+    white-space: nowrap;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.8rem;
+    font-weight: 400;
+    color: #606060;;
+  }
+
+  &__text {
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__name {
+    margin-right: 8px;
+  }
+
+  &__head {
+    margin-right: 10px;
+
+    & > img {
+      border-radius: 50%;
+      max-width: 40px;
+      max-height: 40px;
+    }
+  }
 
   &__delete {
     justify-content: flex-end;
 
     & > img {
-      max-height: 34px;
-      max-width: 34px;
-      &:hover{
+      margin-left: 5px;
+      max-height: 26px;
+      max-width: 26px;
+
+      &:hover {
         cursor: pointer;
       }
     }
   }
+
   &__like {
-    &> img{
+    & > img {
       &:hover {
         cursor: pointer;
       }
@@ -64,4 +102,49 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
+
+  &__name {
+    border: none;
+    border-bottom: 1px solid gray;
+
+    &:active, &:hover, &:focus {
+      outline: 0;
+      outline-offset: 0;
+      border-bottom: 1px solid black;
+    }
+  }
+
+  &__submit {
+    color: #fff;
+    background-color: #065fd4;
+    font-size: 14px;
+    line-height: 36px;
+    border: none;
+    border-radius: 20px;
+    margin-top: 10px;
+    outline: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  & textarea {
+    border: none;
+    resize: none;
+    border-bottom: 1px solid gray;
+    &:active, &:hover, &:focus {
+      outline: 0;
+      outline-offset: 0;
+      border-bottom: 1px solid black;
+    }
+  }
+
+  & > label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
 }
