@@ -9,82 +9,80 @@
     <title>Search repositories</title>
 </head>
 <body>
-<div>
-<div>
-    <form class="form">
-        <label>
-            Введите ваше имя:
-            <input type="text" name="nickName"  class="form__name"required>
-        </label>
-        <label>
-            Введите комментарий:
-            <textarea rows="1" cols="45" name="text" class="form__textarea" required contenteditable></textarea>
-        </label>
-        <label>
-            Введите дату:
-            <input type="date" name="date" class="form__date" />
-        </label>
-        <input type="submit" class="form__submit" value="Оставить комменатарий">
-    </form>
-</div>
-<div class="comments">
-    <div class="item">
-        <div class="comments__head">
-            <img src="img/avatar.jpg" alt="avatar">
-        </div>
-        <div class="comments__body">
-            <div class="comments__title">
-                <h3 class="comments__name">Дима</h3>
-                <p class="comments__data">2023-03-03, 16:26</p>
+<div class="wrapper">
+    <div>
+        <form class="form">
+            <label>
+                Введите ваше имя:
+                <input type="text" name="nickName" class="form__name" maxlength="15" required>
+            </label>
+            <label>
+                Введите комментарий:
+                <textarea rows="1" cols="45" name="text" class="form__textarea" required contenteditable></textarea>
+            </label>
+            <label>
+                Введите дату:
+                <input type="date" name="date" class="form__date"/>
+            </label>
+            <input type="submit" class="form__submit" value="Оставить комменатарий">
+        </form>
+    </div>
+    <div class="comments">
+        <div class="item">
+            <div class="comments__head">
+                <img src="assets/avatar.jpg" alt="avatar">
             </div>
-            <div class="comments__text">Привет, мне очень понравилось</div>
-            <div class="comments__like"><img class="unliked"  src="img/unliked.png" alt="unliked"></div>
+            <div class="comments__body">
+                <div class="comments__title">
+                    <h3 class="comments__name">Дима</h3>
+                    <p class="comments__data">2023-03-03, 16:26</p>
+                </div>
+                <p class="comments__text">Привет, мне очень понравилось</p>
+                <div class="comments__like"><img class="unliked" src="assets/unliked.png" alt="unliked"></div>
+            </div>
+            <div class="comments__tools">
+                <div class="comments__delete">
+                    <img src="assets/delete.png" alt="delete">
+                </div>
+            </div>
         </div>
-        <div class="comments__tools">
-            <div class="comments__delete">
-                <img src="img/delete.png" alt="delete">
+        <div class="item">
+            <div class="comments__head">
+                <img src="assets/avatar.jpg" alt="avatar">
+            </div>
+            <div class="comments__body">
+                <div class="comments__title">
+                    <h3 class="comments__name">Елена</h3>
+                    <p class="comments__data">2023-03-03, 16:26</p>
+                </div>
+                <p class="comments__text">Спасибо за эту возможость</p>
+                <div class="comments__like"><img class="liked" src="assets/liked.png" alt="liked">1</div>
+            </div>
+            <div class="comments__tools">
+                <div class="comments__delete">
+                    <img src="assets/delete.png" alt="delete">
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="comments__head">
+                <img src="assets/avatar.jpg" alt="avatar">
+            </div>
+            <div class="comments__body">
+                <div class="comments__title">
+                    <h3 class="comments__name">Вячеслав</h3>
+                    <p class="comments__data">2023-03-03, 16:26</p>
+                </div>
+                <p class="comments__text">Не успеваю всё сделать(((</p>
+                <div class="comments__like"><img class="unliked" src="assets/unliked.png" alt="unliked"></div>
+            </div>
+            <div class="comments__tools">
+                <div class="comments__delete">
+                    <img src="assets/delete.png" alt="delete">
+                </div>
             </div>
         </div>
     </div>
-    <div class="item">
-        <div class="comments__head">
-            <img src="img/avatar.jpg" alt="avatar">
-        </div>
-        <div class="comments__body">
-            <div class="comments__title">
-                <h3 class="comments__name">Елена</h3>
-                <p class="comments__data">2023-03-03, 16:26</p>
-            </div>
-            <div class="comments__text">Спасибо за эту возможость</div>
-
-            <div class="comments__like"><img class="unliked"  src="img/unliked.png" alt="unliked"></div>
-        </div>
-        <div class="comments__tools">
-            <div class="comments__delete">
-                <img src="img/delete.png" alt="delete">
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="comments__head">
-            <img src="img/avatar.jpg" alt="avatar">
-        </div>
-        <div class="comments__body">
-            <div class="comments__title">
-                <h3 class="comments__name">Вячеслав</h3>
-                <p class="comments__data">2023-03-03, 16:26</p>
-            </div>
-            <div class="comments__text">Не успеваю всё сделать(((</div>
-
-            <div class="comments__like"><img class="unliked"  src="img/unliked.png" alt="unliked"></div>
-        </div>
-        <div class="comments__tools">
-            <div class="comments__delete">
-                <img src="img/delete.png" alt="delete">
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 
 </body>

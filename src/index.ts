@@ -23,6 +23,7 @@ const createCard = (cardData: any) => {
 	form__nickName.value = ''
 	form__textarea.value = ''
 	form__date.value = ''
+	tx[0].style.height = '22px'
 
 	let currentDate = new Date();
 	let currentDateYear = currentDate.getFullYear()
@@ -30,14 +31,14 @@ const createCard = (cardData: any) => {
 	let currentDayDay = currentDate.getDate()
 	let currentDateHours = currentDate.getHours()
 	let currentDateMinutes = currentDate.getMinutes()
-
 	let currentCardDate = cardData.date
 
 	const cardDateNotSelected = cardData.date.length === 0
 	const cardDateSelected = cardData.date.length > 0
+	const fixedMinutes = currentDateMinutes < 10 ? `0${currentDateMinutes}` : currentDateMinutes
 
 	if (cardDateNotSelected) {
-		currentCardDate = `сегодня, ${currentDateHours}:${currentDateMinutes}`
+		currentCardDate = `сегодня, ${currentDateHours}:${fixedMinutes}`
 	}
 	if (cardDateSelected) {
 		const [currentCardDateYear, currentCardDateMonth, currentCardDay
@@ -51,13 +52,14 @@ const createCard = (cardData: any) => {
 		let differentDate = (currentDayDate - cardDate)
 		const yesterday = 86400000
 		const today = 0
-		const fixedMinutes = currentDateMinutes < 10 ? `0${currentDateMinutes}` : currentDateMinutes
+
 
 		currentCardDate = `${currentCardDate}, ${currentDateHours}:${fixedMinutes}`
 		if (differentDate === yesterday) {
 			currentCardDate = `вчера, ${currentDateHours}:${fixedMinutes}`
 		}
 		if (differentDate === today) {
+			debugger
 			currentCardDate = `сегодня, ${currentDateHours}:${fixedMinutes}'`
 		}
 
@@ -66,17 +68,17 @@ const createCard = (cardData: any) => {
 	let newDiv = document.createElement("div");
 	newDiv.classList.add("item");
 
-	let itemHeadImg = "<img src=\"assets/avatar.jpg\" alt=\"avatar\">"
+	let itemHeadImg = "<img src='assets/avatar.jpg' alt=\"avatar\">"
 	let itemHead = `<div class='comments__head'>${itemHeadImg}</div>`
 
 	let itemBodyLike = `<div class="comments__like"><img class="unliked"  src="assets/unliked.png" alt="unliked"></div>`
-	let itemBodyText = `<div class="comments__text">${cardData.text}</div>`
+	let itemBodyText = `<p class="comments__text">${cardData.text}</p>`
 	let itemBodyNickName = `<h3 class="comments__name">${cardData.nickName}</h3>`
 	let itemBoydDate = `<div class="comments__data">${currentCardDate}</div>`
 	let itemBodyTitle = `<div class=\"comments__title\">${itemBodyNickName}${itemBoydDate}</div>`
 	let itemBody = `<div class=\"comments__body\">${itemBodyTitle}${itemBodyText}${itemBodyLike}</div>`
 
-	let itemToolsDelete = `<div class="comments__delete"><img src="assets/delete.png" alt="delete"></div>`
+	let itemToolsDelete = `<div class="comments__delete"><img src="./assets/delete.png" alt="delete"></div>`
 	let itemTools = `<div class="comments__tools">${itemToolsDelete}</div>`
 
 	newDiv.innerHTML += itemHead;
@@ -93,7 +95,7 @@ form.onsubmit = (e) => {
 	for (const pair of formData.entries()) {
 		result[pair[0]] = pair[1]
 	}
-	comments.append(createCard(result))
+	comments.prepend(createCard(result))
 }
 comments.addEventListener("click", (e) => {
 	let currentElement = (<HTMLElement>e.target)
@@ -104,9 +106,9 @@ comments.addEventListener("click", (e) => {
 	}
 	if (currentElement.parentElement?.classList.contains("comments__like") && currentParentElement) {
 		if (currentElement.classList.contains("unliked")) {
-			currentElement.parentElement.innerHTML = "<img class=\"liked\"  src=\"assets/liked.png\" alt=\"liked\">1"
+			currentElement.parentElement.innerHTML = "<img class=\"liked\"  src='assets/liked.png\' alt=\"liked\">1"
 		} else {
-			currentElement.parentElement.innerHTML = "<img class=\"unliked\"  src=\"assets/unliked.png\" alt=\"unliked\">"
+			currentElement.parentElement.innerHTML = "<img class=\"unliked\"  src='assets/unliked.png\' alt=\"unliked\">"
 		}
 		console.log()
 		console.log(currentElement)
